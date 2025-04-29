@@ -18,10 +18,10 @@
     .map-container { width: 40%; }
     .map-container iframe { width: 100%; height: 20rem; max-height: 100%; border: 0; }
     .venue-date { font-size: 1.2em; text-align: center; font-weight: bold; }
-    .countdown-buttons { margin-top: 1rem; }
-    .countdown-buttons h2 { margin-bottom: 1rem; font-size: 1.5rem; }
-    .countdown-buttons div { display: inline-block; margin: 0 0.5rem; }
-    .countdown-btn { background-color: #007bff; color: white; padding: 1rem 2rem; border-radius: 0.5rem; font-size: 1.2em; }
+    .countdown-buttons { margin-top: 1rem; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1.5rem; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .countdown-buttons h2 { margin-bottom: 1rem; font-size: 1.5rem; width: 100%; }
+    .countdown-buttons div { display: inline-block; flex: 1; }
+    .countdown-btn { background-color: #007bff; color: white; padding: 1rem; border-radius: 0.5rem; font-size: 1.2em; min-width: 8rem; width: 100%; text-align: center; box-sizing: border-box; }
     .video-container { width: 100%; aspect-ratio: 16 / 9; max-height: 80vh; overflow: hidden; position: relative; }
     .video-container video { width: 100%; height: 100%; object-fit: contain; }
     .members { padding: 2rem; display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; gap: 1rem; }
@@ -68,6 +68,8 @@
       .member { margin: 0.5rem 0; }
       .timeline-item { width: 8rem; height: 8rem; }
       .video-container { max-height: 60vh; }
+      .countdown-buttons { gap: 1rem; max-width: 500px; }
+      .countdown-btn { font-size: 1em; padding: 0.75rem; min-width: 7rem; }
       .club-images { flex-direction: column; align-items: center; }
       .club-text { text-align: center; padding: 0 1rem; }
       .image-slider { width: calc(12rem * 4); }
@@ -90,7 +92,8 @@
       .header-content h1 { font-size: 1.3rem; }
       .logo { width: 5rem; }
       .member img { float: none; margin: 0 0 1rem 0; }
-      .countdown-btn { font-size: 1em; padding: 0.75rem 1.5rem; }
+      .countdown-buttons { gap: 0.75rem; max-width: 400px; }
+      .countdown-btn { font-size: 0.9em; padding: 0.5rem; min-width: 6rem; }
       .timeline-item { width: 6rem; height: 6rem; }
       .timeline-item h3 { font-size: 1rem; }
       .timeline-item p { font-size: 0.8rem; }
@@ -116,8 +119,8 @@
       .logo { width: 4rem; }
       .header-content h1 { font-size: 1.2rem; }
       .map-container iframe { height: 15rem; }
-      .countdown-buttons div { margin: 0 0.2rem; }
-      .countdown-btn { font-size: 0.8em; padding: 0.5rem 1rem; }
+      .countdown-buttons { flex-direction: column; gap: 0.5rem; max-width: 300px; }
+      .countdown-btn { font-size: 0.8em; padding: 0.5rem; min-width: 5rem; }
       .timeline-item { width: 5rem; height: 5rem; }
       .timeline-item h3 { font-size: 0.9rem; }
       .timeline-item p { font-size: 0.7rem; }
@@ -141,7 +144,8 @@
     @media (max-width: 320px) {
       .header-content h1 { font-size: 1rem; }
       .logo { width: 3rem; }
-      .countdown-btn { font-size: 0.7em; padding: 0.4rem 0.8rem; }
+      .countdown-buttons { max-width: 200px; }
+      .countdown-btn { font-size: 0.7em; padding: 0.4rem; min-width: 4rem; }
       .venue-date { font-size: 1em; }
       .member h3 { font-size: 1.3em; }
       .social-icons a { font-size: 1.2em; }
@@ -170,17 +174,17 @@
           <div id="minutes" class="countdown-btn">0Minutes</div>
           <div id="seconds" class="countdown-btn">0Seconds</div>
         </div>
-        <p class="venue-date"><br>Venue:chakra Hall,Sangeethas Hotel.(Pal pannai Chennai-bypass-road)<br><br>Date: July 20, 2025 <br><br>Time:10.A.M.</p>
+        <p class="venue-date"><br>Venue: Chakra Hall, Sangeethas Hotel (Pal Pannai Chennai-Bypass-Road)<br><br>Date: July 20, 2025 <br><br>Time: 10 A.M.</p>
       </div>
     </div>
   </header>
 
   <div class="video-container">
-    <video id="myVideo" autoplay loop playsinline>
+    <video id="myVideo" autoplay loop muted playsinline>
       <source src="video.mp4" type="video/mp4">
     </video>
   </div>
-
+  
   <section class="members">
     <div class="member">
       <img src="258113.jpg" alt="President">
@@ -188,7 +192,7 @@
       <p>I help businesses in building beautiful websites, mobile apps, and helping their brand to grow through a wonderful experience.</p>
       <p>Business: Doe Enterprises</p>
       <div class="social-icons">
-        <h4>follow me on</h2>
+        <h4>Follow me on</h4>
         <a href="#"><i class="fa-brands fa-instagram"></i></a>
         <a href="#"><i class="fa-brands fa-facebook"></i></a>
         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
@@ -200,7 +204,7 @@
       <p>I help businesses in building beautiful websites, mobile apps, and helping their brand to grow through a wonderful experience.</p>
       <p>Business: Smith Solutions</p>
       <div class="social-icons">
-        <h4>follow me on</h2>
+        <h4>Follow me on</h4>
         <a href="#"><i class="fa-brands fa-instagram"></i></a>
         <a href="#"><i class="fa-brands fa-facebook"></i></a>
         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
@@ -212,7 +216,7 @@
       <p>I help businesses in building beautiful websites, mobile apps, and helping their brand to grow through a wonderful experience.</p>
       <p>Business: Brown Co.</p>
       <div class="social-icons">
-        <h4>follow me on</h2>
+        <h4>Follow me on</h4>
         <a href="#"><i class="fa-brands fa-instagram"></i></a>
         <a href="#"><i class="fa-brands fa-facebook"></i></a>
         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
@@ -264,6 +268,8 @@
       <a href="https://www.instagram.com/_vignesh_exe_?igsh=MXhrd2NvbzhiaHV6cQ=="><i class="fa-brands fa-instagram"></i></a>
       <a href="https://www.facebook.com/profile.php?id=100008873411992&mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
       <a href="https://x.com/vigneshhariraj?t=jZUJKeRzd3oAajMKLuWe3g&s=08"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="http://www.linkedin.com/in/vigneshhariraj"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/Vigneshhariraj"><i class="fa-brands fa-github"></i></a>
     </div>
   </footer>
 
@@ -332,38 +338,5 @@
       setTimeout(fireConfetti, 600);
     });
   </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const video = document.getElementById('myVideo');
-      
-      // First attempt: Try to play with sound directly
-      video.play()
-        .then(() => {
-          // Successfully playing - now try to unmute
-          video.muted = false;
-        })
-        .catch(error => {
-          console.log("Autoplay prevented by browser:", error);
-          
-          // Second attempt: Try to utilize user interaction
-          document.addEventListener('click', function initialClick() {
-            video.muted = false;
-            video.play();
-            document.removeEventListener('click', initialClick);
-          }, { once: true });
-        });
-      
-      // Last resort - attempt to unmute after a small delay
-      setTimeout(() => {
-        if (video.muted) {
-          try {
-            video.muted = false;
-          } catch (e) {
-            console.log("Could not unmute video");
-          }
-        }
-      }, 500);
-    });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93788c60ed84bfac',t:'MTc0NTg2NDE2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93788c60ed84bfac',t:'MTc0NTg2NDE2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937c9f5a6a32677c',t:'MTc0NTkwNjg4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
