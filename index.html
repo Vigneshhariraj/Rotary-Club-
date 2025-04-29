@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="logo.png">
+  <title>Rotary Club of Diamond City Trichy Installation Ceremony 2026</title>
+  <script src="https://kit.fontawesome.com/260a568f38.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; text-align: center; line-height: 1.6; }
+    header { background: #f4f4f4; padding: 2rem; }
+    .header-content { display: flex; align-items: center; justify-content: center; gap: 1rem; max-width: 1200px; margin: 0 auto; }
+    .logo { width: 8rem; max-width: 100%; }
+    .countdown-section { display: flex; justify-content: space-between; align-items: center; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+    .countdown { font-size: 1.5em; text-align: right; }
+    .map-container { width: 40%; }
+    .map-container iframe { width: 100%; height: 20rem; max-height: 100%; border: 0; }
+    .venue-date { font-size: 1.2em; text-align: center; font-weight: bold; }
+    .countdown-buttons { margin-top: 1rem; }
+    .countdown-buttons h2 { margin-bottom: 1rem; font-size: 1.5rem; }
+    .countdown-buttons div { display: inline-block; margin: 0 0.5rem; }
+    .countdown-btn { background-color: #007bff; color: white; padding: 1rem 2rem; border-radius: 0.5rem; font-size: 1.2em; }
+    .video-container { width: 100%; aspect-ratio: 16 / 9; max-height: 80vh; overflow: hidden; position: relative; }
+    .video-container video { width: 100%; height: 100%; object-fit: contain; }
+    .members { padding: 2rem; display: flex; justify-content: center; align-items: flex-start; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; gap: 1rem; }
+    .member { margin: 0.5rem; text-align: left; flex: 1 1 300px; }
+    .member img { width: 10rem; height: 10rem; border-radius: 1rem; float: right; margin-left: 1rem; max-width: 100%; height: auto; }
+    .member h3 { font-size: 1.5em; color: #ff0000; }
+    .member p { margin-bottom: 0.5rem; }
+    .social-icons a { margin: 0 0.5rem; font-size: 1.5em; text-decoration: none; color: #333; }
+    .social-icons a:hover { color: #007bff; }
+    .events { padding: 2rem; background: #f9f9f9; }
+    .timeline { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 2rem 0; }
+    .timeline-item { flex: 1 1 300px; background: #f4f4f4; padding: 1.5rem; border-radius: 50%; width: 10rem; height: 10rem; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s; }
+    .timeline-item:hover { transform: scale(1.1); }
+    .timeline-item h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .timeline-item p { font-size: 0.9rem; }
+    .club-images { padding: 2rem; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+    .club-text { flex: 1; text-align: left; padding-right: 1rem; }
+    .image-wrapper { flex: 1; overflow: hidden; }
+    .image-slider { display: flex; width: calc(15rem * 4); animation: slide 16s infinite linear; }
+    .image-wrapper { width: 15rem; }
+    .image-slider img { width: 15rem; height: auto; max-width: 100%; flex-shrink: 0; }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(0); }
+      25% { transform: translateX(-15rem); }
+      45% { transform: translateX(-15rem); }
+      50% { transform: translateX(-30rem); }
+      70% { transform: translateX(-30rem); }
+      75% { transform: translateX(-45rem); }
+      95% { transform: translateX(-45rem); }
+      100% { transform: translateX(0); }
+    }
+    .footer { padding: 1rem; background: #333; color: white; }
+    .footer .social-icons a { color: white; }
+    .footer .social-icons a:hover { color: #007bff; }
+
+    @media (max-width: 1024px) {
+      .header-content { flex-wrap: wrap; gap: 0.5rem; }
+      .logo { width: 6rem; }
+      .header-content h1 { font-size: 1.5rem; }
+      .countdown-section { flex-direction: column; }
+      .map-container { width: 100%; }
+      .members { flex-direction: column; gap: 0.5rem; }
+      .member { margin: 0.5rem 0; }
+      .timeline-item { width: 8rem; height: 8rem; }
+      .video-container { max-height: 60vh; }
+      .club-images { flex-direction: column; align-items: center; }
+      .club-text { text-align: center; padding: 0 1rem; }
+      .image-slider { width: calc(12rem * 4); }
+      .image-wrapper { width: 12rem; }
+      .image-slider img { width: 12rem; }
+      @keyframes slide {
+        0% { transform: translateX(0); }
+        20% { transform: translateX(0); }
+        25% { transform: translateX(-12rem); }
+        45% { transform: translateX(-12rem); }
+        50% { transform: translateX(-24rem); }
+        70% { transform: translateX(-24rem); }
+        75% { transform: translateX(-36rem); }
+        95% { transform: translateX(-36rem); }
+        100% { transform: translateX(0); }
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-content h1 { font-size: 1.3rem; }
+      .logo { width: 5rem; }
+      .member img { float: none; margin: 0 0 1rem 0; }
+      .countdown-btn { font-size: 1em; padding: 0.75rem 1.5rem; }
+      .timeline-item { width: 6rem; height: 6rem; }
+      .timeline-item h3 { font-size: 1rem; }
+      .timeline-item p { font-size: 0.8rem; }
+      .video-container { max-height: 50vh; }
+      .image-slider { width: calc(10rem * 4); }
+      .image-wrapper { width: 10rem; }
+      .image-slider img { width: 10rem; }
+      @keyframes slide {
+        0% { transform: translateX(0); }
+        20% { transform: translateX(0); }
+        25% { transform: translateX(-10rem); }
+        45% { transform: translateX(-10rem); }
+        50% { transform: translateX(-20rem); }
+        70% { transform: translateX(-20rem); }
+        75% { transform: translateX(-30rem); }
+        95% { transform: translateX(-30rem); }
+        100% { transform: translateX(0); }
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-content { flex-direction: column; gap: 0.5rem; }
+      .logo { width: 4rem; }
+      .header-content h1 { font-size: 1.2rem; }
+      .map-container iframe { height: 15rem; }
+      .countdown-buttons div { margin: 0 0.2rem; }
+      .countdown-btn { font-size: 0.8em; padding: 0.5rem 1rem; }
+      .timeline-item { width: 5rem; height: 5rem; }
+      .timeline-item h3 { font-size: 0.9rem; }
+      .timeline-item p { font-size: 0.7rem; }
+      .video-container { max-height: 40vh; }
+      .image-slider { width: calc(8rem * 4); }
+      .image-wrapper { width: 8rem; }
+      .image-slider img { width: 8rem; }
+      @keyframes slide {
+        0% { transform: translateX(0); }
+        20% { transform: translateX(0); }
+        25% { transform: translateX(-8rem); }
+        45% { transform: translateX(-8rem); }
+        50% { transform: translateX(-16rem); }
+        70% { transform: translateX(-16rem); }
+        75% { transform: translateX(-24rem); }
+        95% { transform: translateX(-24rem); }
+        100% { transform: translateX(0); }
+      }
+    }
+
+    @media (max-width: 320px) {
+      .header-content h1 { font-size: 1rem; }
+      .logo { width: 3rem; }
+      .countdown-btn { font-size: 0.7em; padding: 0.4rem 0.8rem; }
+      .venue-date { font-size: 1em; }
+      .member h3 { font-size: 1.3em; }
+      .social-icons a { font-size: 1.2em; }
+      .timeline-item h3 { font-size: 0.8rem; }
+      .timeline-item p { font-size: 0.65rem; }
+      .club-text h2 { font-size: 1.3rem; }
+      .club-text p { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="logo.png" alt="Rotary Club Logo" class="logo">
+      <h1>Rotary Club of Diamond City Trichy</h1>
+    </div>
+    <div class="countdown-section">
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d946.5391223199223!2d78.71173966167427!3d10.82469724796636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf450e454c7ff%3A0x1186fe48124117af!2sChakra%20Hall!5e1!3m2!1sen!2sin!4v1745860862104!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div>
+        <div class="countdown-buttons">
+          <h2>Countdown to Installation Ceremony</h2>
+          <div id="days" class="countdown-btn">0Days</div>
+          <div id="hours" class="countdown-btn">0Hours</div>
+          <div id="minutes" class="countdown-btn">0Minutes</div>
+          <div id="seconds" class="countdown-btn">0Seconds</div>
+        </div>
+        <p class="venue-date"><br>Venue:chakra Hall,Sangeethas Hotel.(Pal pannai Chennai-bypass-road)<br><br>Date: July 20, 2025 <br><br>Time:10.A.M.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="video-container">
+  <video autoplay unmuted loop>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  </div>
+
+  <section class="members">
+    <div class="member">
+      <img src="258113.jpg" alt="President">
+      <h3>President - John Doe</h3>
+      <p>I help businesses in building beautiful websites, mobile apps, and helping their brand to grow through a wonderful experience.</p>
+      <p>Business: Doe Enterprises</p>
+      <div class="social-icons">
+        <h4>follow me on</h2>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="member">
+      <img src="258113.jpg" alt="Secretary">
+      <h3>Secretary - Jane Smith</h3>
+      <p>I help businesses in building beautiful websites, mobile apps, and helping their brand to grow through a wonderful experience.</p>
+      <p>Business: Smith Solutions</p>
+      <div class="social-icons">
+        <h4>follow me on</h2>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="member">
+      <img src="258113.jpg" alt="Treasurer">
+      <h3>Treasurer - Mike Brown</h3>
+      <p>I help businesses in building beautiful websites, mobile apps, and helping their brand to grow through a wonderful experience.</p>
+      <p>Business: Brown Co.</p>
+      <div class="social-icons">
+        <h4>follow me on</h2>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="events">
+    <h2>Future Events 2026</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>January 15: Charity Run</h3>
+        <p>Join us for a fun run to support local charities.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>March 20: Community Workshop</h3>
+        <p>A workshop to engage and educate the community.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>June 10: Annual Gala</h3>
+        <p>Celebrate the year's achievements with our annual gala.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="club-images">
+    <div class="club-text">
+      <h2>About Rotary Club of Diamond City Trichy</h2>
+      <p>The Rotary Club of Diamond City Trichy is dedicated to serving the community through various service projects, fostering goodwill, and promoting peace. Founded with a mission to bring positive change, we focus on education, health, and environmental initiatives.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <div class="image-wrapper">
+      <div class="image-slider">
+        <img src="258113.jpg" alt="Event 1">
+        <img src="258113.jpg" alt="Event 2">
+        <img src="258113.jpg" alt="Event 3">
+        <img src="258113.jpg" alt="Event 4">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Designed by Vigneshhariraj</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/_vignesh_exe_?igsh=MXhrd2NvbzhiaHV6cQ=="><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100008873411992&mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://x.com/vigneshhariraj?t=jZUJKeRzd3oAajMKLuWe3g&s=08"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    function countdown() {
+      const countDate = new Date("July 20, 2025 10:00:00").getTime();
+      const now = new Date().getTime();
+      const gap = countDate - now;
+
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+
+      const days = Math.floor(gap / day);
+      const hours = Math.floor((gap % day) / hour);
+      const minutes = Math.floor((gap % hour) / minute);
+      const seconds = Math.floor((gap % minute) / second);
+
+      document.getElementById("days").textContent = `${days}Days`;
+      document.getElementById("hours").textContent = `${hours}Hours`;
+      document.getElementById("minutes").textContent = `${minutes}Minutes`;
+      document.getElementById("seconds").textContent = `${seconds}Seconds`;
+
+      if (gap < 0) {
+        document.getElementById("days").textContent = `0Days`;
+        document.getElementById("hours").textContent = `0Hours`;
+        document.getElementById("minutes").textContent = `0Minutes`;
+        document.getElementById("seconds").textContent = `0Seconds`;
+      }
+    }
+    setInterval(countdown, 1000);
+
+    // Full-screen confetti animation on page load
+    window.addEventListener('load', () => {
+      // Multiple bursts from different origins for full-screen effect
+      function fireConfetti() {
+        confetti({
+          particleCount: 200,
+          spread: 120,
+          origin: { x: 0.2, y: 0.4 },
+          colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00'],
+          scalar: 1.5,
+          drift: 0.1
+        });
+        confetti({
+          particleCount: 200,
+          spread: 120,
+          origin: { x: 0.8, y: 0.4 },
+          colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00'],
+          scalar: 1.5,
+          drift: -0.1
+        });
+        confetti({
+          particleCount: 150,
+          spread: 100,
+          origin: { x: 0.5, y: 0.2 },
+          colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00'],
+          scalar: 1.2
+        });
+      }
+
+      // Fire confetti in bursts for a prolonged effect
+      fireConfetti();
+      setTimeout(fireConfetti, 300);
+      setTimeout(fireConfetti, 600);
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93788c60ed84bfac',t:'MTc0NTg2NDE2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
